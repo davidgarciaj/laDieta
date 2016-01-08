@@ -59,6 +59,9 @@ public class Alimento
             if(grProteinas > grGrasas){
                 System.out.println("Componente/s Mayoritario/s: Proteinas, Carbohidratos.");
             }
+            else if(grProteinas == grGrasas){
+                System.out.println("Componente/s Mayoritario/s: Proteinas, Carbohidratos, Grasas.");
+            }
             else{
                 System.out.println("Componente/s Mayoritario/s: Grasas.");
             }
