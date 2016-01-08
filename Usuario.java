@@ -58,11 +58,27 @@ public class Usuario
      * Mostrar datos del consumo del usuario
      */
     public void mostrarDatos(){
+		float totalMacronutrientes = grasas + proteinas + carbohidratos;
         System.out.println(nombre + " " + apellido1 + " " + apellido2);
         System.out.println();
-        System.out.println("Gramos totales de proteinas ingeridos: " + proteinas);
-        System.out.println("Gramos totales de grasas ingeridas: " + grasas);
-        System.out.println("Gramos totales de carbohidratos ingeridos: " + carbohidratos);
+		if(proteinas != 0){
+			System.out.println("Gramos totales de proteinas ingeridos: " + proteinas + " (" + proteinas/totalMacronutrientes*100 + "%)");
+		}
+        else{
+			System.out.println("Gramos totales de proteinas ingeridos: " + proteinas);
+		}
+		if(grasas != 0){
+			System.out.println("Gramos totales de proteinas ingeridos: " + grasas + " (" + grasas/totalMacronutrientes*100 + "%)");
+		}
+        else{
+        	System.out.println("Gramos totales de grasas ingeridas: " + grasas);
+    	}	
+		if(carbohidratos != 0){
+			System.out.println("Gramos totales de proteinas ingeridos: " + carbohidratos + " (" + carbohidratos/totalMacronutrientes*100 + "%)");
+		}
+        else{
+        	System.out.println("Gramos totales de carbohidratos ingeridos: " + carbohidratos);
+    	}
         System.out.println("Calorias totales ingeridas: " + calorias);
     }
 }
