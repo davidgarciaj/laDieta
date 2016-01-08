@@ -34,6 +34,30 @@ public class Alimento
     }
 
     /**
+     * Nos devuelve número de carbohidratos
+     */
+    public float getCarbohidratos()
+    {
+        return grCarbohidratos;
+    }
+    
+    /**
+     * Nos devuelve número de grasas
+     */
+    public float getGrasas()
+    {
+        return grGrasas;
+    }
+    
+    /**
+     * Nos devuelve número de proteinas
+     */
+    public float getProteinas()
+    {
+        return grProteinas;
+    }
+
+    /**
      * Nos muestra la información del alimento
      */
     public void muestraDatos()
