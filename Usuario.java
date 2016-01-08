@@ -7,13 +7,19 @@
  */
 public class Usuario
 {
-    // instance variables - replace the example below with your own
+    // Guarda nombre del usuario
     private String nombre;
+	//Guarda primer apellido
     private String apellido1;
+	//Guarda segundo apellido
     private String apellido2;
+	//Guarda gramos de proteinas ingeridas
     private float proteinas;
+	//Guarda gramos de grasas ingeridas
     private float grasas;
+	//Guarda gramos de carbohidratos ingeridas
     private float carbohidratos;
+	//Guarda calorias ingeridas
     private float calorias;
 
     /**
