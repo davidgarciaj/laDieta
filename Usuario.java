@@ -53,5 +53,10 @@ public class Usuario
      */
     public void mostrarDatos(){
         System.out.println(nombre + " " + apellido1 + " " + apellido2);
+        System.out.println();
+        System.out.println("Gramos totales de proteinas ingeridos: " + proteinas);
+        System.out.println("Gramos totales de grasas ingeridas: " + grasas);
+        System.out.println("Gramos totales de carbohidratos ingeridos: " + carbohidratos);
+        System.out.println("Calorias totales ingeridas: " + calorias);
     }
 }
