@@ -101,12 +101,15 @@ public class Usuario
      */
     public void comparaCalorias(Usuario usuarioAComparar){
         float caloriasSegundoUsuario = usuarioAComparar.getCalorias();
-        String masCalorias = usuarioAComparar.getNombreCompleto() + " a consumido mas calorias que "+ getNombreCompleto();
+        String masCalorias = usuarioAComparar.getNombreCompleto() + " ha consumido mas calorias que "
+                + getNombreCompleto() + " (" + caloriasSegundoUsuario + " calorias frente a " + calorias + " calorias)";
         if(calorias > caloriasSegundoUsuario){
-            masCalorias = getNombreCompleto() + " a consumido mas calorias que "+ usuarioAComparar.getNombreCompleto();
+            masCalorias = getNombreCompleto() + " ha consumido mas calorias que "+ usuarioAComparar.getNombreCompleto() 
+                + " (" + calorias + " calorias frente a " + caloriasSegundoUsuario + "calorias)";
         }
         else if(calorias == caloriasSegundoUsuario){
-            masCalorias = "Tanto "+ getNombreCompleto() + " como "+ usuarioAComparar.getNombreCompleto() + " han consumido las mismas calorias.";
+            masCalorias = "Tanto "+ getNombreCompleto() + " como "+ usuarioAComparar.getNombreCompleto() 
+                + " han consumido las mismas calorias ("+ calorias +" calorias).";
         }
         System.out.println(masCalorias);
     }
