@@ -21,6 +21,8 @@ public class Usuario
     private float carbohidratos;
     //Guarda calorias ingeridas
     private float calorias;
+    //Guarda alimento con mas calorias
+    private Alimento alMasCalorico;
 
     /**
      * Constructor for objects of class Usuario
@@ -41,6 +43,8 @@ public class Usuario
         carbohidratos = 0;
         //calorias digeridas por el usuario
         calorias = 0;
+        //Alimento consumido con mayor calorias
+        alMasCalorico = null;
     }
     
     /**
@@ -62,10 +66,13 @@ public class Usuario
      */
     public void comer(Alimento comida, float cantidad)
     {
-      calorias = calorias + (((comida.getProteinas() + comida.getCarbohidratos()) * 4 + comida.getGrasas() * 9) * cantidad/100);
+      calorias = calorias + (comida.getCalorias() * cantidad/100);
       proteinas = proteinas + (comida.getProteinas()*cantidad/100);
       grasas = grasas + (comida.getGrasas()*cantidad/100);
       carbohidratos = carbohidratos + (comida.getCarbohidratos()*cantidad/100);
+      if((alMasCalorico == null) || (comida.getCalorias() >= alMasCalorico.getCalorias())){
+          alMasCalorico = comida;
+      }
     }
     
     /**
@@ -112,5 +119,18 @@ public class Usuario
                 + " han consumido las mismas calorias ("+ calorias +" calorias).";
         }
         System.out.println(masCalorias);
+    }
+    
+    /**
+     * Muestra por pantalla el alimento mas calorico
+     */
+    public void alimentoMasCalorico(){
+        if(alMasCalorico != null){
+            System.out.println("Alimento más calórico ingerido por este usuario hasta el momento: "
+				 + alMasCalorico.getNombre() + " (" + alMasCalorico.getCalorias() + " calorias por cada 100 gramos)");
+        }
+        else{
+            System.out.println("No ha consumido ningún alimento");
+        }
     }
 }

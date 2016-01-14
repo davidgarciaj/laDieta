@@ -32,7 +32,15 @@ public class Alimento
         //El nombre de este alimento
         this.nombre = nombre;
     }
-
+    
+    /**
+     * Nos devuelve el nombre del alimento
+     */
+    public String getNombre()
+    {
+        return nombre;
+    }
+    
     /**
      * Nos devuelve número de carbohidratos
      */
@@ -47,6 +55,15 @@ public class Alimento
     public float getGrasas()
     {
         return grGrasas;
+    }
+    
+    /**
+     * Nos devuelve número de calorias
+     */
+    public float getCalorias()
+    {
+        float calorias = (getProteinas() + getCarbohidratos()) * 4 + getGrasas() * 9;
+        return calorias;
     }
     
     /**
