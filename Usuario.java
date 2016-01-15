@@ -1,4 +1,4 @@
-
+import java.util.ArrayList;
 /**
  * Write a description of class Usuario here.
  * 
@@ -23,6 +23,8 @@ public class Usuario
     private float calorias;
     //Guarda alimento con mas calorias
     private Alimento alMasCalorico;
+    //Guarda todos los alimentos consumidos por el usuario
+    private ArrayList<Alimento> alimentosConsumidos;
 
     /**
      * Constructor for objects of class Usuario
@@ -45,6 +47,8 @@ public class Usuario
         calorias = 0;
         //Alimento consumido con mayor calorias
         alMasCalorico = null;
+        //Lista de alimentos consumidos
+        alimentosConsumidos = new ArrayList<>();
     }
     
     /**
@@ -73,6 +77,7 @@ public class Usuario
       if((alMasCalorico == null) || (comida.getCalorias() >= alMasCalorico.getCalorias())){
           alMasCalorico = comida;
       }
+      alimentosConsumidos.add(comida);
     }
     
     /**
@@ -127,10 +132,22 @@ public class Usuario
     public void alimentoMasCalorico(){
         if(alMasCalorico != null){
             System.out.println("Alimento más calórico ingerido por este usuario hasta el momento: "
-				 + alMasCalorico.getNombre() + " (" + alMasCalorico.getCalorias() + " calorias por cada 100 gramos)");
+                 + alMasCalorico.getNombre() + " (" + alMasCalorico.getCalorias() + " calorias por cada 100 gramos)");
         }
         else{
             System.out.println("No ha consumido ningún alimento");
+        }
+    }
+    
+    /**
+     * Muestra datos del alimento comido en la posición seleccionada
+     */
+    public void datosAlimentos(int orden){
+        if((orden > alimentosConsumidos.size()) || (orden < 1)){
+            System.out.println("El usuario no ha consumido ningún alimento en el orden del número: " + orden);
+        }
+        else{
+            alimentosConsumidos.get(orden-1).muestraDatos();
         }
     }
 }
