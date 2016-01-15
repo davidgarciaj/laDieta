@@ -150,4 +150,23 @@ public class Usuario
             alimentosConsumidos.get(orden-1).muestraDatos();
         }
     }
+    
+    /**
+     * Identifica si un alimento ha sido consumido y cuantas veces se ha consumido
+     */
+    public void cuantasVecesComeUnAlimento(String nombreAlimento){
+        int contador = 0;
+        for(Alimento alimento: alimentosConsumidos){
+            String revisaAlimento = alimento.getNombre();
+            if(revisaAlimento == nombreAlimento){
+                contador++;
+            }
+        }
+        if(contador == 0){
+            System.out.println("El usuario no ha consumido nunca el alimento " + nombreAlimento + " con anterioridad.");
+        }
+        else{
+            System.out.println("El número de veces que el usuario ha consumido el alimento " + nombreAlimento + " es: " + contador + ".");
+        }
+    }
 }
