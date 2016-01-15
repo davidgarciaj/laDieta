@@ -136,7 +136,7 @@ public class Usuario
         }
         else{
             System.out.println("No ha consumido ningún alimento");
-        }
+            }
     }
     
     /**
@@ -154,7 +154,7 @@ public class Usuario
     /**
      * Identifica si un alimento ha sido consumido y cuantas veces se ha consumido
      */
-    public void cuantasVecesComeUnAlimento(String nombreAlimento){
+    public int cuentaVecesComidoUnAlimento(String nombreAlimento){
         int contador = 0;
         for(Alimento alimento: alimentosConsumidos){
             String revisaAlimento = alimento.getNombre();
@@ -162,11 +162,38 @@ public class Usuario
                 contador++;
             }
         }
+        return contador;
+    }
+    
+    /**
+     * Identifica si un alimento ha sido consumido y cuantas veces se ha consumido
+     */
+    public void compruevaUnAlimento(String nombreAlimento){
+        int contador = cuentaVecesComidoUnAlimento(nombreAlimento);
         if(contador == 0){
             System.out.println("El usuario no ha consumido nunca el alimento " + nombreAlimento + " con anterioridad.");
         }
         else{
             System.out.println("El número de veces que el usuario ha consumido el alimento " + nombreAlimento + " es: " + contador + ".");
+        }
+    }
+    
+    /**
+     * Muestra alimentos consumidos más de una vez
+     */
+    public void alimentosConsumidosRepetidamente(){
+        String comidas = "";
+        boolean contador = true;
+        ArrayList<String> alimentosRepetidos = new ArrayList<>();
+        for(Alimento alimento: alimentosConsumidos){            
+            if(cuentaVecesComidoUnAlimento(alimento.getNombre()) > 1 && !comidas.contains(alimento.getNombre())){               
+                System.out.println( alimento.getNombre());
+                comidas = comidas + alimento.getNombre();
+                contador = false;
+            }
+        }
+        if(contador){
+            System.out.println("No se ha consumido ningún alimento mas de una vez.");
         }
     }
 }
