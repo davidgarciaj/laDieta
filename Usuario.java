@@ -182,18 +182,29 @@ public class Usuario
      * Muestra alimentos consumidos más de una vez
      */
     public void alimentosConsumidosRepetidamente(){
-        String comidas = "";
         boolean contador = true;
         ArrayList<String> alimentosRepetidos = new ArrayList<>();
         for(Alimento alimento: alimentosConsumidos){            
-            if(cuentaVecesComidoUnAlimento(alimento.getNombre()) > 1 && !comidas.contains(alimento.getNombre())){               
-                System.out.println( alimento.getNombre());
-                comidas = comidas + alimento.getNombre();
-                contador = false;
+            if(cuentaVecesComidoUnAlimento(alimento.getNombre()) > 1 ){ 
+				boolean verificador= true;             
+                for(String seRepite: alimentosRepetidos){
+					if(seRepite == alimento.getNombre()){
+						verificador = false;
+					}
+                }
+                if(verificador){
+                    	alimentosRepetidos.add(alimento.getNombre());
+                		contador = false;
+				}
             }
         }
         if(contador){
             System.out.println("No se ha consumido ningún alimento mas de una vez.");
         }
+		else{
+			for(String seRepite :alimentosRepetidos){
+				System.out.println(seRepite);
+			}
+		}
     }
 }
